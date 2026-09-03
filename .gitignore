@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+site/
+.DS_Store
+# o artigo (texto, gerador, figuras e .docx) fica só na máquina do autor
+artigo/
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/external/municipios_norte_minas.csv

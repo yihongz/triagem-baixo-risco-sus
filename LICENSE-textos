@@ -1,0 +1,10 @@
+Os textos, as figuras e os arquivos de resultado deste repositório estão sob a licença Creative Commons
+Atribuição 4.0 (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/deed.pt-br
+
+A licença cobre:
+- os textos: README.md, models/LEIAME.md, docs/, references/dicionario-rd.md e o texto dos notebooks;
+- as figuras;
+- os arquivos de resultado em reports/.
+
+O código, inclusive o dos notebooks, segue a licença MIT, no arquivo LICENSE.
