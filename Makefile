@@ -1,8 +1,9 @@
 PYTHON = .venv/bin/python
 ULTIMO_MES ?= 2026-07
 EXPLORATORIOS = $(PYTHON) -m triagem_baixo_risco.experimentos.exploratorios
+CONFIRMATORIO = $(PYTHON) -m triagem_baixo_risco.experimentos.confirmatorio
 
-.PHONY: ambiente dados exploratorios figuras notebooks testes lint docs
+.PHONY: ambiente dados exploratorios confirmatorio confirmatorio-c figuras notebooks testes lint docs
 
 ambiente:
 	uv venv --python 3.12 .venv
@@ -19,6 +20,17 @@ exploratorios:
 	done
 	$(EXPLORATORIOS) --experimento x3 --desfecho perm_prolongada --sensibilidade nenhuma
 	$(EXPLORATORIOS) --experimento x4 --desfecho perm_prolongada --sensibilidade nenhuma
+
+confirmatorio:
+	$(CONFIRMATORIO) --variante a
+	$(CONFIRMATORIO) --variante b
+	for s in s1 s2 s3 s4 s5 s6; do \
+		$(CONFIRMATORIO) --variante a --sensibilidade $$s || exit 1; \
+	done
+
+# X7c precisa das competências até out/2026 (make dados ULTIMO_MES=2026-10) e de reports/confirmatorio/x7a.json.
+confirmatorio-c:
+	$(CONFIRMATORIO) --variante c
 
 figuras:
 	$(PYTHON) -m triagem_baixo_risco.plots --resultados reports/exploratorios/morte/nenhuma
