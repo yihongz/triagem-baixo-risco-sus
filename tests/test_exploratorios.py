@@ -133,3 +133,26 @@ def test_strategy_summary_reports_calibration_drift_and_violations(data):
     assert {"oe_desvio_medio", "trimestres_g1_violada", "trimestres_g2_violada", "fracao_liberada_media"} <= set(
         out["x3_a"]
     )
+
+
+def test_fit_baselines_follows_the_sensitivity_columns(raw):
+    """Nas sensibilidades S2 e S6, a logística completa usa as colunas da própria sensibilidade
+    (d.numeric/d.categorical), como o boosting já fazia, em vez das listas fixas NUMERIC/CATEGORICAL."""
+    removed = {"s2": {"cid3"}, "s6": {"cnes", "munic_mov"}}
+    for s in ("s2", "s6"):
+        d = prepare(raw, "morte", s)
+        train = in_window(d.dates, "2019-01-01", "2022-01-01")
+        models, preds = fit_baselines(d, train)
+        for p in preds.values():
+            assert len(p) == len(d.y)
+            assert ((p >= 0) & (p <= 1)).all()
+        cat_cols = set(models["logistica"].named_steps["pre"].transformers[-1][2])
+        assert not removed[s] & cat_cols
+
+
+def test_full_logistic_lists_unchanged_outside_s2_s6(raw):
+    """Fora de S2 e S6, fit_baselines monta a logística completa com as listas fixas NUMERIC e CATEGORICAL."""
+    for s in ("nenhuma", "s1", "s3", "s4", "s5"):
+        d = prepare(raw, "morte", s)
+        assert d.numeric == list(NUMERIC)
+        assert d.categorical == list(CATEGORICAL)

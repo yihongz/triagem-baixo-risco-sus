@@ -133,6 +133,14 @@ def test_sensitivities_run_only_on_x7a_and_write_their_own_file(path, x7a, tmp_p
         run_confirmatory(path, "b", tmp_path, n_boot=50, sensitivity="s1")
 
 
+def test_sensitivities_that_drop_columns_run(path, tmp_path):
+    """Nas sensibilidades S2 e S6, colunas saem da matriz do modelo; a rodada confirmatória inteira, logística completa
+    incluída, precisa terminar nas duas, cada uma no seu arquivo."""
+    for s in ("s2", "s6"):
+        res = run_confirmatory(path, "a", tmp_path, n_boot=50, sensitivity=s)
+        assert res["arquivo"] == f"x7a_{s}.json" and (tmp_path / f"x7a_{s}.json").exists()
+
+
 def test_confirmatory_run_checks_the_integrity_of_the_data(raw, tmp_path):
     open_df, sealed_df = split_sealed(raw)
     dup = sealed_df.copy()

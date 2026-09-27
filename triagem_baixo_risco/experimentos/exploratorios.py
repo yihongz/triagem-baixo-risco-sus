@@ -276,7 +276,7 @@ def utility_comparisons(
 def fit_baselines(d: Data, train) -> tuple[dict, dict]:
     models = {
         "hgb": make_hgb(SEED, d.numeric, d.categorical),
-        "logistica": make_logistic_full(NUMERIC, CATEGORICAL),
+        "logistica": make_logistic_full(d.numeric, d.categorical),
         "logistica_simples": make_logistic_simple(),
     }
     preds = {k: _predict(m.fit(d.X[train], d.y[train]), d.X) for k, m in models.items()}
