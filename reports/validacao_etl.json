@@ -1,0 +1,10 @@
+{
+  "descricao": "Concordancia da COMPLEX com o procedimento modal (base 2019-2025 da coorte).",
+  "executado_em": "2026-09-29T15:46:58",
+  "base": "data/processed/sih_norte_minas.parquet",
+  "base_sha256": "fd5fec252d613728cbfc99407819b7a9f5345f7a8d4ea44f24e9e1dfdbc23ea0",
+  "linhas_base": 825434,
+  "linhas_2019_2025": 818861,
+  "concordancia_complex_procedimento_realizado": 0.995677,
+  "concordancia_complex_procedimento_solicitado": 0.976498
+}

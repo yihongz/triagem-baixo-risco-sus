@@ -38,7 +38,7 @@ ainda acompanha essa fração por trimestre, como uma das medidas de deriva.
 
 COMPLEX, a complexidade da AIH, saiu porque é determinada pelo procedimento realizado, que só se conhece depois da
 admissão: em 99,6% das internações de 2019 a 2025, a COMPLEX da AIH é a mais frequente entre as AIH com o mesmo
-procedimento realizado (com o procedimento solicitado, seriam 97,6%). Por isso ela está na lista de colunas que vazam o desfecho, junto com as que só existem
+procedimento realizado (com o procedimento solicitado, seriam 97,6%; conta reproduzível em `reports/validacao_etl.json`). Por isso ela está na lista de colunas que vazam o desfecho, junto com as que só existem
 depois da admissão ou são o próprio desfecho: permanência e diárias, UTI e UCI, valores pagos, data e motivo de saída
 (DT_SAIDA e COBRANCA), óbito e CID do óbito, procedimento realizado, diagnósticos secundários, infecção hospitalar e
 exame VDRL. A lista, coluna por coluna, está no dicionário. Um teste impede que alguma dessas colunas, ou RACA_COR,
