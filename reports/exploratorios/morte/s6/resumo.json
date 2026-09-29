@@ -1,0 +1,391 @@
+{
+  "desfecho": "morte",
+  "sensibilidade": "s6",
+  "info": {
+    "descartadas_sem_data": 0
+  },
+  "experimentos_disponiveis": [
+    "x3"
+  ],
+  "hipoteses_exploratorias": {
+    "h1": {
+      "refutada": true,
+      "cenarios": {
+        "x3_a": {
+          "periodos_violados": [
+            "2024T1"
+          ],
+          "agregado": {
+            "k": 930,
+            "n": 16815,
+            "valor": 0.05530776092774309,
+            "ic": [
+              0.0519002625890667,
+              0.05887007286209295
+            ],
+            "p_violacao": 0.1243178493965248
+          },
+          "refuta": true
+        },
+        "x3_b": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 828,
+            "n": 16815,
+            "valor": 0.04924174843889385,
+            "ic": [
+              0.0460198138289345,
+              0.052620707419934555
+            ],
+            "p_violacao": 0.5545529627696866
+          },
+          "refuta": false
+        },
+        "x3_c": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 815,
+            "n": 16815,
+            "valor": 0.04846862920011894,
+            "ic": [
+              0.04527128456101318,
+              0.05182328151323484
+            ],
+            "p_violacao": 0.6119573666585737
+          },
+          "refuta": false
+        },
+        "x3_d": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 831,
+            "n": 16815,
+            "valor": 0.049420160570918824,
+            "ic": [
+              0.04619258320476788,
+              0.05280469698474112
+            ],
+            "p_violacao": 0.5386303924774103
+          },
+          "refuta": false
+        },
+        "x3_e": {
+          "periodos_violados": [
+            "2024T1"
+          ],
+          "agregado": {
+            "k": 915,
+            "n": 16815,
+            "valor": 0.054415700267618196,
+            "ic": [
+              0.05103471394412827,
+              0.057951824080664543
+            ],
+            "p_violacao": 0.166402731041024
+          },
+          "refuta": true
+        },
+        "x3_f": {
+          "periodos_violados": [
+            "2024T1"
+          ],
+          "agregado": {
+            "k": 828,
+            "n": 16815,
+            "valor": 0.04924174843889385,
+            "ic": [
+              0.0460198138289345,
+              0.052620707419934555
+            ],
+            "p_violacao": 0.5753680770613675
+          },
+          "refuta": true
+        },
+        "x3_g": {
+          "periodos_violados": [
+            "2024T1"
+          ],
+          "agregado": {
+            "k": 930,
+            "n": 16815,
+            "valor": 0.05530776092774309,
+            "ic": [
+              0.0519002625890667,
+              0.05887007286209295
+            ],
+            "p_violacao": 0.1243178493965248
+          },
+          "refuta": true
+        }
+      }
+    },
+    "h1b": {
+      "refutada": false,
+      "cenarios": {
+        "x3_a": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 907,
+            "n": 16771,
+            "valor": 0.05408145012223481,
+            "ic": [
+              0.05070610794755745,
+              0.05761246085260252
+            ],
+            "p_violacao": 0.18446923507985524
+          },
+          "refuta": false
+        },
+        "x3_b": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 805,
+            "n": 16771,
+            "valor": 0.04799952298610697,
+            "ic": [
+              0.04481310260795963,
+              0.05134383872489744
+            ],
+            "p_violacao": 0.6625186111073963
+          },
+          "refuta": false
+        },
+        "x3_c": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 792,
+            "n": 16771,
+            "valor": 0.047224375409933815,
+            "ic": [
+              0.04406301284514104,
+              0.05054391879288414
+            ],
+            "p_violacao": 0.7142327269680486
+          },
+          "refuta": false
+        },
+        "x3_d": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 815,
+            "n": 16771,
+            "valor": 0.04859579035239402,
+            "ic": [
+              0.045390253427600946,
+              0.05195900333235754
+            ],
+            "p_violacao": 0.6115540436619537
+          },
+          "refuta": false
+        },
+        "x3_e": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 892,
+            "n": 16771,
+            "valor": 0.05318704907280425,
+            "ic": [
+              0.04983868107120108,
+              0.05669141179611091
+            ],
+            "p_violacao": 0.23874543333850495
+          },
+          "refuta": false
+        },
+        "x3_f": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 805,
+            "n": 16771,
+            "valor": 0.04799952298610697,
+            "ic": [
+              0.04481310260795963,
+              0.05134383872489744
+            ],
+            "p_violacao": 0.7012563137959242
+          },
+          "refuta": false
+        },
+        "x3_g": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 907,
+            "n": 16771,
+            "valor": 0.05408145012223481,
+            "ic": [
+              0.05070610794755745,
+              0.05761246085260252
+            ],
+            "p_violacao": 0.18446923507985524
+          },
+          "refuta": false
+        }
+      }
+    },
+    "h2": {
+      "refutada": true,
+      "cenarios": {
+        "x3_a": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999999999711225,
+          "spearman": 0.6363636363636365,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_b": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999999994497901,
+          "spearman": -0.18881118881118883,
+          "criterios": [
+            false,
+            false,
+            true
+          ],
+          "refuta": true
+        },
+        "x3_c": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999999999991714,
+          "spearman": -0.17482517482517487,
+          "criterios": [
+            false,
+            false,
+            true
+          ],
+          "refuta": true
+        },
+        "x3_d": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999999998138686,
+          "spearman": 0.06993006993006995,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_e": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999999998485124,
+          "spearman": 0.6013986013986015,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_f": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999999992437176,
+          "spearman": 0.2377622377622378,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_g": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": true,
+          "p_agregado_razao_baixa": 2.1698590661351078e-24,
+          "spearman": 0.3636363636363637,
+          "criterios": [
+            false,
+            true,
+            false
+          ],
+          "refuta": true
+        }
+      }
+    },
+    "h3": {
+      "refutada": false,
+      "p_wilcoxon": 0.0009765625,
+      "p_mcnemar": 1.0,
+      "violacoes_estatica": 0,
+      "violacoes_trimestral": 0,
+      "n_trimestres": 12
+    }
+  },
+  "resumo_estrategias": {
+    "x3_a": {
+      "oe_desvio_medio": 0.12233509318746176,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6493011347885137
+    },
+    "x3_b": {
+      "oe_desvio_medio": 0.06153237581220161,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6345149809154522
+    },
+    "x3_c": {
+      "oe_desvio_medio": 0.05681918426230961,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6355221960055267
+    },
+    "x3_d": {
+      "oe_desvio_medio": 0.061927202935927024,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6396198405355683
+    },
+    "x3_e": {
+      "oe_desvio_medio": 0.12233509318746176,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6477035970506263
+    },
+    "x3_f": {
+      "oe_desvio_medio": 0.06672974125682819,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6396554183862029
+    },
+    "x3_g": {
+      "oe_desvio_medio": 0.8499174889335158,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 7,
+      "fracao_liberada_media": 0.6493011347885137
+    },
+    "x3_e(gamma=0.01)": {
+      "oe_desvio_medio": 0.12233509318746176,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6488277233179078
+    },
+    "x3_e(gamma=0.05)": {
+      "oe_desvio_medio": 0.12233509318746176,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6465565276114897
+    },
+    "x3_f(meia_vida=2)": {
+      "oe_desvio_medio": 0.05614199747654913,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6372398962974077
+    },
+    "x3_f(meia_vida=8)": {
+      "oe_desvio_medio": 0.07435650393307182,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.6410043836524906
+    }
+  }
+}

@@ -37,10 +37,12 @@ e 33% das internações em cada ano de 2019 a 2021, caiu ao longo de 2022 e sumi
 ainda acompanha essa fração por trimestre, como uma das medidas de deriva.
 
 COMPLEX, a complexidade da AIH, saiu porque é determinada pelo procedimento realizado, que só se conhece depois da
-admissão. Por isso ela está na lista de colunas que vazam o desfecho, junto com as que só existem
+admissão: em 99,6% das internações de 2019 a 2025, a COMPLEX da AIH é a mais frequente entre as AIH com o mesmo
+procedimento realizado (com o procedimento solicitado, seriam 97,6%). Por isso ela está na lista de colunas que vazam o desfecho, junto com as que só existem
 depois da admissão ou são o próprio desfecho: permanência e diárias, UTI e UCI, valores pagos, data e motivo de saída
 (DT_SAIDA e COBRANCA), óbito e CID do óbito, procedimento realizado, diagnósticos secundários, infecção hospitalar e
-exame VDRL. A lista, coluna por coluna, está no dicionário.
+exame VDRL. A lista, coluna por coluna, está no dicionário. Um teste impede que alguma dessas colunas, ou RACA_COR,
+vire coluna de origem das variáveis, e que COMPLEX saia da lista.
 
 Algumas dessas colunas voltam, fora do modelo. MORTE define o desfecho principal, e DIAS_PERM, o secundário
 (permanência de 8 dias ou mais). A COBRANCA entra nos marcadores e, com a DT_SAIDA, na ligação de episódios da S5.
@@ -62,7 +64,8 @@ no modelo.
 Junto com os marcadores, o código guarda a idade em anos, que a regra sem modelo usa, e o hospital (CNES), que define
 os grupos do bootstrap de hospitais. O sexo (1 masculino, 3 feminino) fica ali para o X5.
 
-A COBRANCA só se conhece na saída, mas entra no marcador obstétrico.
+A COBRANCA só se conhece na saída, mas entra no marcador obstétrico. Das internações de 2019 a 2025, 2.483 (0,3%) entram
+no marcador só pela COBRANCA de 61 a 67, e nenhuma delas terminou em óbito.
 
 ## Ligação de AIH na S5
 

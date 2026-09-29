@@ -38,7 +38,12 @@ Arquivos: `reports/confirmatorio/x7a_s2.json` e `reports/confirmatorio/x7a_s6.js
 
 
 - testes automatizados: um que fixa as variáveis da logística completa fora da S2 e da S6 (27/09/2026);
+- os exploratórios, refeitos depois do download de 2026, que completou o seguimento das internações do fim de 2025
+  (29/09/2026): no agregado da estratégia estática, o p da G1 passou de 0,135 para 0,157, e sem os óbitos em surto, de
+  0,204 para 0,231, sem mudar nenhuma decisão sobre as hipóteses. O pré-registro cita os valores anteriores com duas
+  casas, 0,14 e 0,20; o valor exato de antes do pré-registro (0,135) é do registro de execuções do autor, não versionado.
 
+- a reexecução de validação em pasta limpa (29/09) cobriu as bases e os exploratórios: a base lacrada manteve o SHA-256 dos JSONs; a aberta canônica (`fd5fec25…`, o `sha256_dados.aberto` dos JSONs da rodada) foi rebaixada e saiu como `76f6bcc5…` — mesmas 825.434 linhas, mesmos resultados exploratórios; a diferença é a formatação de campos de valores pagos de fev/2019 e jan/2024, que não entram nas análises. As rodadas confirmatórias não foram reexecutadas: cada arquivo saiu uma vez, entre a noite de 26/09 e a de 27/09. Limitação: os relatórios das explorações não gravam o SHA-256 da base — só os da rodada; os números exploratórios são conferíveis pelas linhas e campos, não pelo hash. Nada muda nas decisões; entra aqui porque o pré-registro pede que reexecuções fiquem no diário.
 
 
 - os arquivos publicados da rodada não registram o commit do código que os gerou; o que ancora a versão é a tag `pre-registro-v1` (26/09, 22:19) para as execuções pré-registradas, e o commit da correção de 27/09 para S2 e S6.

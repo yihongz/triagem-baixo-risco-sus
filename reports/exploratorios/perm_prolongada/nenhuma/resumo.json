@@ -1,0 +1,728 @@
+{
+  "desfecho": "perm_prolongada",
+  "sensibilidade": "nenhuma",
+  "info": {
+    "descartadas_sem_data": 0
+  },
+  "experimentos_disponiveis": [
+    "x3",
+    "x4"
+  ],
+  "hipoteses_exploratorias": {
+    "h1": {
+      "refutada": true,
+      "cenarios": {
+        "x3_a": {
+          "periodos_violados": [
+            "2024T1",
+            "2024T2"
+          ],
+          "agregado": {
+            "k": 3175,
+            "n": 57126,
+            "valor": 0.05557889577425341,
+            "ic": [
+              0.0537140082046921,
+              0.05748909339833306
+            ],
+            "p_violacao": 0.01597508896101174
+          },
+          "refuta": true
+        },
+        "x3_b": {
+          "periodos_violados": [
+            "2024T2"
+          ],
+          "agregado": {
+            "k": 2912,
+            "n": 57126,
+            "valor": 0.05097503763610265,
+            "ic": [
+              0.04918549833659537,
+              0.05281036802078196
+            ],
+            "p_violacao": 0.3356700461007487
+          },
+          "refuta": true
+        },
+        "x3_c": {
+          "periodos_violados": [
+            "2024T1",
+            "2024T2"
+          ],
+          "agregado": {
+            "k": 2890,
+            "n": 57126,
+            "valor": 0.05058992402758814,
+            "ic": [
+              0.048806865863981086,
+              0.052418813598591976
+            ],
+            "p_violacao": 0.3930991161971751
+          },
+          "refuta": true
+        },
+        "x3_d": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 2913,
+            "n": 57126,
+            "valor": 0.05099254280012604,
+            "ic": [
+              0.049202709584865216,
+              0.05282816526806089
+            ],
+            "p_violacao": 0.33312478168150783
+          },
+          "refuta": false
+        },
+        "x3_e": {
+          "periodos_violados": [
+            "2024T1",
+            "2024T2"
+          ],
+          "agregado": {
+            "k": 3167,
+            "n": 57126,
+            "valor": 0.05543885446206631,
+            "ic": [
+              0.05357620331220657,
+              0.057346830273236414
+            ],
+            "p_violacao": 0.018148709010065045
+          },
+          "refuta": true
+        },
+        "x3_f": {
+          "periodos_violados": [
+            "2024T1",
+            "2024T2"
+          ],
+          "agregado": {
+            "k": 2980,
+            "n": 57126,
+            "valor": 0.05216538878969296,
+            "ic": [
+              0.05035599623444696,
+              0.05402044788411123
+            ],
+            "p_violacao": 0.1486881452752438
+          },
+          "refuta": true
+        },
+        "x3_g": {
+          "periodos_violados": [
+            "2024T1",
+            "2024T2"
+          ],
+          "agregado": {
+            "k": 3175,
+            "n": 57126,
+            "valor": 0.05557889577425341,
+            "ic": [
+              0.0537140082046921,
+              0.05748909339833306
+            ],
+            "p_violacao": 0.01597508896101174
+          },
+          "refuta": true
+        },
+        "x4_a": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 1496,
+            "n": 29383,
+            "valor": 0.050913793690229046,
+            "ic": [
+              0.04842782867247068,
+              0.05348901876807745
+            ],
+            "p_violacao": 0.4141954669977691
+          },
+          "refuta": false
+        },
+        "x4_b": {
+          "periodos_violados": [
+            "2021T1",
+            "2021T2",
+            "2021T3",
+            "2021T4"
+          ],
+          "agregado": {
+            "k": 1654,
+            "n": 29383,
+            "valor": 0.056291052649491205,
+            "ic": [
+              0.053682655450066494,
+              0.058987605071906674
+            ],
+            "p_violacao": 0.060103622185162506
+          },
+          "refuta": true
+        },
+        "x4_c": {
+          "periodos_violados": [
+            "2021T1",
+            "2021T2",
+            "2021T3"
+          ],
+          "agregado": {
+            "k": 1619,
+            "n": 29383,
+            "valor": 0.05509988769016098,
+            "ic": [
+              0.052517995371932476,
+              0.05777017943030349
+            ],
+            "p_violacao": 0.07779224831615349
+          },
+          "refuta": true
+        },
+        "x4_e": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 1532,
+            "n": 29383,
+            "valor": 0.05213899193411156,
+            "ic": [
+              0.04962448575190593,
+              0.05474250586108194
+            ],
+            "p_violacao": 0.32846841335557275
+          },
+          "refuta": false
+        },
+        "x4_f": {
+          "periodos_violados": [
+            "2021T1",
+            "2021T2",
+            "2021T3",
+            "2021T4"
+          ],
+          "agregado": {
+            "k": 1659,
+            "n": 29383,
+            "valor": 0.05646121907225266,
+            "ic": [
+              0.053849062739053204,
+              0.059161495766074344
+            ],
+            "p_violacao": 0.03477802762894326
+          },
+          "refuta": true
+        },
+        "x4_g": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 1496,
+            "n": 29383,
+            "valor": 0.050913793690229046,
+            "ic": [
+              0.04842782867247068,
+              0.05348901876807745
+            ],
+            "p_violacao": 0.4141954669977691
+          },
+          "refuta": false
+        }
+      }
+    },
+    "h1b": {
+      "refutada": true,
+      "cenarios": {
+        "x3_a": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 3059,
+            "n": 56745,
+            "valor": 0.05390783328927659,
+            "ic": [
+              0.052063740829829,
+              0.05579771653755749
+            ],
+            "p_violacao": 0.06358450768535007
+          },
+          "refuta": false
+        },
+        "x3_b": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 2796,
+            "n": 56745,
+            "valor": 0.049273063706053395,
+            "ic": [
+              0.04750653449334812,
+              0.05108587195751215
+            ],
+            "p_violacao": 0.6034198947741317
+          },
+          "refuta": false
+        },
+        "x3_c": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 2774,
+            "n": 56745,
+            "valor": 0.048885364349281875,
+            "ic": [
+              0.047125513220487684,
+              0.05069153545222521
+            ],
+            "p_violacao": 0.6607370019900216
+          },
+          "refuta": false
+        },
+        "x3_d": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 2804,
+            "n": 56745,
+            "valor": 0.04941404529033395,
+            "ic": [
+              0.04764509526251613,
+              0.05122925947514098
+            ],
+            "p_violacao": 0.5811496277691083
+          },
+          "refuta": false
+        },
+        "x3_e": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 3051,
+            "n": 56745,
+            "valor": 0.05376685170499604,
+            "ic": [
+              0.051925059512872566,
+              0.05565444950962813
+            ],
+            "p_violacao": 0.07042327529330561
+          },
+          "refuta": false
+        },
+        "x3_f": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 2864,
+            "n": 56745,
+            "valor": 0.0504714071724381,
+            "ic": [
+              0.04868442793632865,
+              0.052304539015790436
+            ],
+            "p_violacao": 0.4070723996291953
+          },
+          "refuta": false
+        },
+        "x3_g": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 3059,
+            "n": 56745,
+            "valor": 0.05390783328927659,
+            "ic": [
+              0.052063740829829,
+              0.05579771653755749
+            ],
+            "p_violacao": 0.06358450768535007
+          },
+          "refuta": false
+        },
+        "x4_a": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 1350,
+            "n": 26538,
+            "valor": 0.05087044992086819,
+            "ic": [
+              0.04825721970477312,
+              0.053582564310703754
+            ],
+            "p_violacao": 0.4176991431557845
+          },
+          "refuta": false
+        },
+        "x4_b": {
+          "periodos_violados": [
+            "2021T2",
+            "2021T3",
+            "2021T4"
+          ],
+          "agregado": {
+            "k": 1491,
+            "n": 26538,
+            "valor": 0.0561835858014922,
+            "ic": [
+              0.053442930417206415,
+              0.059021913986857626
+            ],
+            "p_violacao": 0.06688698215636417
+          },
+          "refuta": true
+        },
+        "x4_c": {
+          "periodos_violados": [
+            "2020T4",
+            "2021T2",
+            "2021T3"
+          ],
+          "agregado": {
+            "k": 1446,
+            "n": 26538,
+            "valor": 0.05448790413746326,
+            "ic": [
+              0.05178711347013384,
+              0.05728675342667145
+            ],
+            "p_violacao": 0.1084741035752567
+          },
+          "refuta": true
+        },
+        "x4_e": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 1379,
+            "n": 26538,
+            "valor": 0.05196322254879795,
+            "ic": [
+              0.04932316701574876,
+              0.054701912492333714
+            ],
+            "p_violacao": 0.34081534014081283
+          },
+          "refuta": false
+        },
+        "x4_f": {
+          "periodos_violados": [
+            "2020T4",
+            "2021T2",
+            "2021T3",
+            "2021T4"
+          ],
+          "agregado": {
+            "k": 1486,
+            "n": 26538,
+            "valor": 0.055995176727711204,
+            "ic": [
+              0.053258915214388025,
+              0.05882915387739813
+            ],
+            "p_violacao": 0.04868906542819915
+          },
+          "refuta": true
+        },
+        "x4_g": {
+          "periodos_violados": [],
+          "agregado": {
+            "k": 1350,
+            "n": 26538,
+            "valor": 0.05087044992086819,
+            "ic": [
+              0.04825721970477312,
+              0.053582564310703754
+            ],
+            "p_violacao": 0.4176991431557845
+          },
+          "refuta": false
+        }
+      }
+    },
+    "h2": {
+      "refutada": true,
+      "cenarios": {
+        "x3_a": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999795442274336,
+          "spearman": -0.3216783216783217,
+          "criterios": [
+            false,
+            false,
+            true
+          ],
+          "refuta": true
+        },
+        "x3_b": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9986670761729872,
+          "spearman": -0.06293706293706294,
+          "criterios": [
+            false,
+            false,
+            true
+          ],
+          "refuta": true
+        },
+        "x3_c": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9999934438015528,
+          "spearman": 0.2377622377622378,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_d": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9998372680748696,
+          "spearman": 0.44055944055944063,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_e": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.999906512158683,
+          "spearman": -0.3846153846153847,
+          "criterios": [
+            false,
+            false,
+            true
+          ],
+          "refuta": true
+        },
+        "x3_f": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.9967317148999952,
+          "spearman": 0.32867132867132864,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x3_g": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": true,
+          "p_agregado_razao_baixa": 0.00018958957340930636,
+          "spearman": -0.23076923076923078,
+          "criterios": [
+            false,
+            true,
+            true
+          ],
+          "refuta": true
+        },
+        "x4_a": {
+          "violacoes_razao_alta": "2/2",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 1.0,
+          "spearman": 0.6904761904761906,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x4_b": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": true,
+          "p_agregado_razao_baixa": 1.0832895285667119e-05,
+          "spearman": 0.2142857142857143,
+          "criterios": [
+            false,
+            true,
+            false
+          ],
+          "refuta": true
+        },
+        "x4_c": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": true,
+          "p_agregado_razao_baixa": 0.3438837905229455,
+          "spearman": 0.38095238095238104,
+          "criterios": [
+            false,
+            true,
+            false
+          ],
+          "refuta": true
+        },
+        "x4_e": {
+          "violacoes_razao_alta": "2/2",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 1.0,
+          "spearman": 0.6904761904761906,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x4_f": {
+          "violacoes_razao_alta": "0/0",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 0.1554125456862129,
+          "spearman": 0.4047619047619048,
+          "criterios": [
+            false,
+            false,
+            false
+          ],
+          "refuta": false
+        },
+        "x4_g": {
+          "violacoes_razao_alta": "0/2",
+          "violacao_razao_baixa": false,
+          "p_agregado_razao_baixa": 1.0,
+          "spearman": -0.5952380952380953,
+          "criterios": [
+            true,
+            false,
+            true
+          ],
+          "refuta": true
+        }
+      }
+    },
+    "h3": {
+      "refutada": false,
+      "p_wilcoxon": 0.012270249485545622,
+      "p_mcnemar": 0.75,
+      "violacoes_estatica": 4,
+      "violacoes_trimestral": 4,
+      "n_trimestres": 20
+    }
+  },
+  "resumo_estrategias": {
+    "x3_a": {
+      "oe_desvio_medio": 0.05049433506017014,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.49064919119741196
+    },
+    "x3_b": {
+      "oe_desvio_medio": 0.032134588655569674,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.4824503599851168
+    },
+    "x3_c": {
+      "oe_desvio_medio": 0.026036400188495058,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.48151488852353413
+    },
+    "x3_d": {
+      "oe_desvio_medio": 0.03400751340302236,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.49202321549837497
+    },
+    "x3_e": {
+      "oe_desvio_medio": 0.05049433506017014,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.49039325855955346
+    },
+    "x3_f": {
+      "oe_desvio_medio": 0.031053367177606317,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.48456333036729404
+    },
+    "x3_g": {
+      "oe_desvio_medio": 0.15704717507343324,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.49064919119741196
+    },
+    "x3_e(gamma=0.01)": {
+      "oe_desvio_medio": 0.05049433506017014,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.4905319647028798
+    },
+    "x3_e(gamma=0.05)": {
+      "oe_desvio_medio": 0.05049433506017014,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.4894543705527314
+    },
+    "x3_f(meia_vida=2)": {
+      "oe_desvio_medio": 0.026402106487127087,
+      "trimestres_g1_violada": 1,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.48288008823780076
+    },
+    "x3_f(meia_vida=8)": {
+      "oe_desvio_medio": 0.03375523365501468,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.4855258343003069
+    },
+    "x4_a": {
+      "oe_desvio_medio": 0.0382995211576978,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.43434582454975795
+    },
+    "x4_b": {
+      "oe_desvio_medio": 0.0525538655417913,
+      "trimestres_g1_violada": 4,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.44354789556537705
+    },
+    "x4_c": {
+      "oe_desvio_medio": 0.0430172491770448,
+      "trimestres_g1_violada": 3,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.44287833621056155
+    },
+    "x4_e": {
+      "oe_desvio_medio": 0.0382995211576978,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.43689934523017726
+    },
+    "x4_f": {
+      "oe_desvio_medio": 0.03580155674067989,
+      "trimestres_g1_violada": 4,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.44544887777603037
+    },
+    "x4_g": {
+      "oe_desvio_medio": 0.32489656981350745,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 0,
+      "fracao_liberada_media": 0.43434582454975795
+    },
+    "x4_e(gamma=0.01)": {
+      "oe_desvio_medio": 0.0382995211576978,
+      "trimestres_g1_violada": 0,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.43434582454975795
+    },
+    "x4_e(gamma=0.05)": {
+      "oe_desvio_medio": 0.0382995211576978,
+      "trimestres_g1_violada": 2,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.4403213031109903
+    },
+    "x4_f(meia_vida=2)": {
+      "oe_desvio_medio": 0.03641474340435143,
+      "trimestres_g1_violada": 5,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.44484928359456116
+    },
+    "x4_f(meia_vida=8)": {
+      "oe_desvio_medio": 0.03554595182569817,
+      "trimestres_g1_violada": 4,
+      "trimestres_g2_violada": 4,
+      "fracao_liberada_media": 0.4456283323828474
+    }
+  }
+}
