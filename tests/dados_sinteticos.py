@@ -74,4 +74,25 @@ def synthetic_raw(
         month = ano * 12 + mes - 1 + rng.integers(0, cmpt_delay_max + 1, n)
         raw["ANO_CMPT"] = (month // 12).astype(str)
         raw["MES_CMPT"] = [f"{m % 12 + 1:02d}" for m in month]
+    # colunas pos-admissao que faltavam no fixture: o teste de permutacao precisa embaralha-las todas
+    _sec = np.where(rng.random((n, 9)) < 0.12, rng.choice(["I10", "E119", "J449", "Z999", "R53"], (n, 9)), "")
+    for _i, _nome in enumerate([f"DIAGSEC{_j}" for _j in range(1, 10)]):
+        raw[_nome] = _sec[:, _i]
+    for _j in range(1, 10):
+        raw[f"TPDISEC{_j}"] = np.where(_sec[:, _j - 1] == "", "", rng.choice(["0", "1", "2"], n))
+    _val = rng.gamma(2, 400, (n, 9)).round(2).astype(str)
+    for _i, _nome in enumerate(["VAL_SH", "VAL_SH_FED", "VAL_SH_GES", "VAL_SP", "VAL_SP_FED", "VAL_SP_GES",
+                                "VAL_UCI", "VAL_UTI", "US_TOT"]):
+        raw[_nome] = _val[:, _i]
+    raw["CID_ASSO"] = rng.choice(["Z999", "I10", "E119", ""], n)
+    raw["CID_MORTE"] = np.where(morte, rng.choice(["I219", "J189", "C509"], n), "")
+    raw["DIAG_SECUN"] = rng.choice(["I10", "E119", "J449", ""], n)
+    raw["DIAR_ACOM"] = rng.integers(0, 4, n).astype(str)
+    raw["IND_VDRL"] = rng.choice(["1", "2", "3", "9"], n)
+    raw["INFEHOSP"] = rng.choice(["0", "1"], n)
+    raw["MARCA_UCI"] = rng.choice(["0", "1"], n)
+    raw["MARCA_UTI"] = rng.choice(["0", "1"], n)
+    raw["QT_DIARIAS"] = rng.integers(0, 3, n).astype(str)
+    raw["TOT_PT_SP"] = rng.integers(0, 6, n).astype(str)
+    raw["UTI_INT_TO"] = rng.integers(0, 3, n).astype(str)
     return raw

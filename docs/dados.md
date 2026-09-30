@@ -42,7 +42,8 @@ procedimento realizado (com o procedimento solicitado, seriam 97,6%; conta repro
 depois da admissão ou são o próprio desfecho: permanência e diárias, UTI e UCI, valores pagos, data e motivo de saída
 (DT_SAIDA e COBRANCA), óbito e CID do óbito, procedimento realizado, diagnósticos secundários, infecção hospitalar e
 exame VDRL. A lista, coluna por coluna, está no dicionário. Um teste impede que alguma dessas colunas, ou RACA_COR,
-vire coluna de origem das variáveis, e que COMPLEX saia da lista.
+vire coluna de origem das variáveis, e que COMPLEX saia da lista. Outro embaralha todas as colunas que não são de
+origem, inclusive as que não estão na lista, e confere que as variáveis do modelo não mudam.
 
 Algumas dessas colunas voltam, fora do modelo. MORTE define o desfecho principal, e DIAS_PERM, o secundário
 (permanência de 8 dias ou mais). A COBRANCA entra nos marcadores e, com a DT_SAIDA, na ligação de episódios da S5.

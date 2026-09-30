@@ -74,6 +74,18 @@ def test_source_columns_never_include_post_admission_fields():
     assert "RACA_COR" not in SOURCE_COLUMNS
 
 
+def test_features_ignore_every_column_outside_the_admission_sources():
+    # embaralha desfecho, permanência, valores, UTI, saída e todo o resto que não é coluna de admissão
+    raw = synthetic_raw(n=400, seed=3)
+    shuffled = raw.copy()
+    for col in raw.columns.difference(SOURCE_COLUMNS):
+        shuffled[col] = raw[col].sample(frac=1, random_state=0).to_numpy()
+    assert not shuffled["MORTE"].equals(raw["MORTE"]) and not shuffled["DIAS_PERM"].equals(raw["DIAS_PERM"])
+    X, _ = build_features(raw)
+    X_shuffled, _ = build_features(shuffled)
+    pd.testing.assert_frame_equal(X, X_shuffled)
+
+
 def test_build_features_drops_race_and_complexity():
     X, _ = build_features(pd.DataFrame([_raw_row()]))
     assert "raca_cor" not in X.columns and "complexidade" not in X.columns
