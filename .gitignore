@@ -7,8 +7,10 @@ __pycache__/
 .ipynb_checkpoints/
 site/
 .DS_Store
-# o artigo (texto, gerador, figuras e .docx) fica só na máquina do autor
-artigo/
+# do artigo ficam fora do versionado o texto, as figuras, as fontes e o .docx; o gerador e publico
+artigo/*
+!artigo/gerador/
+artigo/gerador/node_modules/
 data/**
 !data/**/
 !data/**/.gitkeep
