@@ -1,0 +1,13 @@
+site_name: Triagem de baixo risco no SUS
+site_author: Paulo Victor Soares Almeida
+docs_dir: docs
+
+theme:
+  name: mkdocs
+  locale: pt_BR
+
+nav:
+  - Início: index.md
+  - Dados: dados.md
+  - Como reproduzir: reproduzir.md
+  - Pré-registro: pre-registro.md

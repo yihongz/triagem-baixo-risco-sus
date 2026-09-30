@@ -3,7 +3,7 @@ ULTIMO_MES ?= 2026-07
 EXPLORATORIOS = $(PYTHON) -m triagem_baixo_risco.experimentos.exploratorios
 CONFIRMATORIO = $(PYTHON) -m triagem_baixo_risco.experimentos.confirmatorio
 
-.PHONY: ambiente dados exploratorios confirmatorio confirmatorio-c figuras notebooks testes lint docs
+.PHONY: ambiente dados exploratorios confirmatorio confirmatorio-c figuras notebooks testes lint docs validacao
 
 ambiente:
 	uv venv --python 3.12 .venv
@@ -51,3 +51,7 @@ lint:
 
 docs:
 	$(PYTHON) -m mkdocs build --strict
+
+# Recalcula a concordancia da COMPLEX (reports/validacao_etl.json) a partir da base em data/processed/.
+validacao:
+	$(PYTHON) -m triagem_baixo_risco.experimentos.validacao_etl
