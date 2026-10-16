@@ -89,3 +89,18 @@ que a H5 avaliou.
 - A H1b foi formulada depois de ver a violação da G1 no 1º trimestre de 2024.
 
 ---
+
+
+## Acréscimos de 16/10/2026
+
+
+- Mudança depois do pré-registro que não mexe em decisão e que faltava na lista acima: a conferência da COMPLEX
+  (`triagem_baixo_risco/experimentos/validacao_etl.py` e `reports/validacao_etl.json`, commit `2c32cb4`, 29/09/2026),
+  que calcula, nas internações de 2019 a 2025 da base aberta, a concordância da COMPLEX com a complexidade mais
+  frequente entre as AIH com o mesmo procedimento realizado (99,6%) e com o mesmo procedimento solicitado (97,6%). A
+  COMPLEX já estava fora do modelo no pré-registro; a conta só documenta o motivo.
+- Limitação de prova: duas datas deste registro não são verificáveis de fora. O horário do download de 2026 vem do
+  `etl_log.jsonl`, que fica na máquina do autor, e a tag `pre-registro-v1` não é assinada nem tem testemunha pública.
+  A cronologia (commit do pré-registro às 21:40 de 26/09, tag às 22:19, download das 22:54 às 22:56, primeira rodada
+  às 23:02) é declaração do autor, não prova. `docs/reproduzir.md` já trazia essa ressalva, e o artigo passa a
+  trazê-la na seção 3.5 e nas limitações.

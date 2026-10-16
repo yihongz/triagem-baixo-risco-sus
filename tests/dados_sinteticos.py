@@ -81,8 +81,9 @@ def synthetic_raw(
     for _j in range(1, 10):
         raw[f"TPDISEC{_j}"] = np.where(_sec[:, _j - 1] == "", "", rng.choice(["0", "1", "2"], n))
     _val = rng.gamma(2, 400, (n, 9)).round(2).astype(str)
-    for _i, _nome in enumerate(["VAL_SH", "VAL_SH_FED", "VAL_SH_GES", "VAL_SP", "VAL_SP_FED", "VAL_SP_GES",
-                                "VAL_UCI", "VAL_UTI", "US_TOT"]):
+    for _i, _nome in enumerate(
+        ["VAL_SH", "VAL_SH_FED", "VAL_SH_GES", "VAL_SP", "VAL_SP_FED", "VAL_SP_GES", "VAL_UCI", "VAL_UTI", "US_TOT"]
+    ):
         raw[_nome] = _val[:, _i]
     raw["CID_ASSO"] = rng.choice(["Z999", "I10", "E119", ""], n)
     raw["CID_MORTE"] = np.where(morte, rng.choice(["I219", "J189", "C509"], n), "")

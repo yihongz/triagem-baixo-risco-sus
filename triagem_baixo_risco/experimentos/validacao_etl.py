@@ -5,6 +5,7 @@ Confere a afirmativa do artigo e de docs/dados.md: entre as internacoes de 2019 
 PROCEDIMENTO REALIZADO em 99,6% dos casos (com o PROCEDIMENTO SOLICITADO, 97,6%).
 Grava reports/validacao_etl.json com os numeros, a base usada e o SHA-256 dela.
 """
+
 import argparse
 import hashlib
 import json
