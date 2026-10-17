@@ -85,7 +85,10 @@ hipóteses exploratórias.
 `x7a_s1.json` a `x7a_s6.json`. Antes de ajustar os modelos, a rodada confere a base lacrada (datas de internação a
 partir de 01/01/2026 e nenhum N_AIH repetido entre as duas bases), o seguimento dos meses do teste contra o mesmo
 mês do ano anterior (razão abaixo de 0,90 recusa) e para se faltar alguma competência entre janeiro de
-2019 e julho de 2026. Cada arquivo registra as versões das bibliotecas e o SHA-256 das duas bases. A checagem do seguimento já estava no código do pré-registro.
+2019 e julho de 2026. Cada arquivo registra as versões das bibliotecas e o SHA-256 das duas bases. Os arquivos de 26 e
+27/09 não registram o commit do código; os gravados depois deles, como o da X7c, trazem também no bloco `ambiente` o
+commit (`commit`) e se a árvore de trabalho tinha mudanças não commitadas (`arvore_suja`), com `null` nos dois quando
+não há git. A checagem do seguimento já estava no código do pré-registro.
 
 Os arquivos publicados trazem os resultados das execuções de 26 e 27/09/2026 que decidiram as hipóteses.
 

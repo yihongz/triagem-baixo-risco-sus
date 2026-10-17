@@ -13,6 +13,7 @@ import argparse
 import json
 import math
 import platform
+import subprocess
 import time
 from pathlib import Path
 
@@ -179,6 +180,20 @@ def rule_mismatches(ref: dict, new: dict) -> list[str]:
     return [f"{name}: {a} != {b}" for name, a, b in fields if not same(a, b)]
 
 
+def code_version(root: Path) -> dict:
+    """Commit do código (git rev-parse HEAD) e se a árvore de trabalho tinha mudanças (git status --porcelain não vazio,
+    arquivo não rastreado incluído). Os dois ficam None sem git, sem commit ou se root não for a raiz do repositório que
+    o git acha: uma cópia sem .git dentro de outro repositório daria o commit do outro."""
+    git = lambda *args: subprocess.run(["git", *args], cwd=root, capture_output=True, text=True, check=True).stdout
+    try:
+        top, commit = git("rev-parse", "--show-toplevel", "HEAD").splitlines()
+        if Path(top).resolve() == Path(root).resolve():
+            return {"commit": commit, "arvore_suja": git("status", "--porcelain") != ""}
+    except (OSError, subprocess.CalledProcessError):
+        pass  # sem git, fora de um repositório ou sem commit
+    return {"commit": None, "arvore_suja": None}
+
+
 def _environment() -> dict:
     return {
         "python": platform.python_version(),
@@ -187,6 +202,7 @@ def _environment() -> dict:
         "scipy": scipy.__version__,
         "sklearn": sklearn.__version__,
         "pacote": triagem_baixo_risco.__file__,
+        **code_version(config.ROOT),
     }
 
 
@@ -218,6 +234,7 @@ def run_confirmatory(
             raise RuntimeError("X7c usa a regra congelada de X7a: rode X7a antes")
         ref_file = max(refs, key=lambda p: p.name)  # o desvio mais recente, se houver
     started = time.localtime()
+    environment = _environment()  # antes de ler os dados e de gravar qualquer saída
     sealed = load_sealed(open_path)
     raw = pd.concat([load_open(open_path), sealed], ignore_index=True)  # sem guardar outra cópia do aberto
     integrity = check_integrity(raw, sealed)
@@ -240,7 +257,7 @@ def run_confirmatory(
         "sensibilidade": sensitivity,
         "janelas": v,
         "desfecho": target,
-        "ambiente": _environment(),
+        "ambiente": environment,
         "executado_em": time.strftime("%Y-%m-%dT%H:%M:%S", started),
         "desvio": deviation,
         "sha256_dados": {"aberto": sha256_file(open_path), "lacrado": sha256_file(sealed_path(open_path))},

@@ -1,13 +1,17 @@
 import json
+import os
+import subprocess
 
 import pandas as pd
 import pytest
 
 from tests.dados_sinteticos import synthetic_raw
+from triagem_baixo_risco import config
 from triagem_baixo_risco.dataset import SealedDataError, admission_dates, in_window, sealed_path, split_sealed
 from triagem_baixo_risco.experimentos.confirmatorio import (
     VARIANTS,
     check_followup_completeness,
+    code_version,
     competence_filter,
     h2_conditional,
     main,
@@ -198,3 +202,55 @@ def test_followup_check_refuses_incomplete_month():
     raw = _followup_frame([("20250115", 100), ("20250215", 100), ("20260115", 95), ("20260215", 80)])
     with pytest.raises(ValueError, match=r"2026-02.*0\.80"):
         check_followup_completeness(raw, "2026-01-01", "2026-03-01")
+
+
+def _git(repo, *args) -> str:
+    return subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True, text=True).stdout.strip()
+
+
+@pytest.fixture
+def repo(tmp_path, monkeypatch):
+    """Repositório git com um commit e a árvore limpa, no lugar da raiz do código. O git dos testes ignora a
+    configuração da máquina e as variáveis que apontariam para outro repositório (as de um hook, por exemplo)."""
+    for var in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE"):
+        monkeypatch.delenv(var, raising=False)
+    monkeypatch.setenv("GIT_CONFIG_GLOBAL", os.devnull)
+    monkeypatch.setenv("GIT_CONFIG_NOSYSTEM", "1")
+    root = tmp_path / "codigo"
+    root.mkdir()
+    (root / "regra.py").write_text("ALFA = 0.05\n")
+    _git(root, "init", "-q")
+    _git(root, "add", "regra.py")
+    _git(root, "-c", "user.name=Teste", "-c", "user.email=teste@example.org", "commit", "-q", "-m", "regra")
+    monkeypatch.setattr(config, "ROOT", root)
+    return root
+
+
+def test_confirmatory_run_records_the_commit_of_a_clean_tree(path, repo):
+    out = repo / "reports" / "confirmatorio"  # como no make confirmatorio, a saída fica dentro do repositório
+    run_confirmatory(path, "b", out, n_boot=50)
+    saved = json.loads((out / "x7b.json").read_text())["ambiente"]
+    assert saved["commit"] == _git(repo, "rev-parse", "HEAD") and saved["arvore_suja"] is False
+
+
+def test_confirmatory_run_records_a_dirty_tree(path, repo, tmp_path):
+    (repo / "regra.py").write_text("ALFA = 0.10\n")  # mudança no código, sem commit
+    run_confirmatory(path, "b", tmp_path / "out", n_boot=50)
+    saved = json.loads((tmp_path / "out" / "x7b.json").read_text())["ambiente"]
+    assert saved["commit"] == _git(repo, "rev-parse", "HEAD") and saved["arvore_suja"] is True
+
+
+def test_confirmatory_run_records_null_without_git(path, repo, tmp_path, monkeypatch):
+    monkeypatch.setenv("PATH", str(tmp_path / "sem_git"))  # o repositório existe, mas não há git para consultá-lo
+    run_confirmatory(path, "b", tmp_path / "out", n_boot=50)
+    saved = json.loads((tmp_path / "out" / "x7b.json").read_text())["ambiente"]
+    assert saved["commit"] is None and saved["arvore_suja"] is None
+
+
+def test_code_version_is_null_unless_the_root_is_a_repository_with_a_commit(repo, tmp_path):
+    inside = repo / "copia"  # pasta sem .git dentro de outro repositório: o commit achado seria o do outro
+    inside.mkdir()
+    fresh = tmp_path / "sem_commit"
+    fresh.mkdir()
+    _git(fresh, "init", "-q")
+    assert code_version(inside) == code_version(fresh) == {"commit": None, "arvore_suja": None}
