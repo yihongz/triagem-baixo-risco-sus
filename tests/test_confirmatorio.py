@@ -27,6 +27,21 @@ def _write(directory, open_df, sealed_df):
     return path
 
 
+@pytest.fixture(scope="module", autouse=True)
+def isolated_git(tmp_path_factory):
+    """Sem isto, as rodadas destes testes recusariam rodar sempre que a cópia de quem testa tivesse mudanças não
+    commitadas. A raiz do código passa a ser uma pasta fora de repositório (commit null, sem recusa), e o git ignora a
+    configuração da máquina e as variáveis de um hook que apontariam para outro repositório. Os testes do commit põem um
+    repositório no lugar (fixture repo)."""
+    with pytest.MonkeyPatch.context() as mp:
+        for var in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE"):
+            mp.delenv(var, raising=False)
+        mp.setenv("GIT_CONFIG_GLOBAL", os.devnull)
+        mp.setenv("GIT_CONFIG_NOSYSTEM", "1")
+        mp.setattr(config, "ROOT", tmp_path_factory.mktemp("fora_de_repositorio"))
+        yield
+
+
 @pytest.fixture(scope="module")
 def raw():
     # competência até 4 meses depois da internação: meses contínuos até dez/2026, cobrindo os cortes de jul e out
@@ -210,12 +225,7 @@ def _git(repo, *args) -> str:
 
 @pytest.fixture
 def repo(tmp_path, monkeypatch):
-    """Repositório git com um commit e a árvore limpa, no lugar da raiz do código. O git dos testes ignora a
-    configuração da máquina e as variáveis que apontariam para outro repositório (as de um hook, por exemplo)."""
-    for var in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE"):
-        monkeypatch.delenv(var, raising=False)
-    monkeypatch.setenv("GIT_CONFIG_GLOBAL", os.devnull)
-    monkeypatch.setenv("GIT_CONFIG_NOSYSTEM", "1")
+    """Repositório git com um commit e a árvore limpa, no lugar da raiz do código."""
     root = tmp_path / "codigo"
     root.mkdir()
     (root / "regra.py").write_text("ALFA = 0.05\n")
@@ -233,18 +243,36 @@ def test_confirmatory_run_records_the_commit_of_a_clean_tree(path, repo):
     assert saved["commit"] == _git(repo, "rev-parse", "HEAD") and saved["arvore_suja"] is False
 
 
-def test_confirmatory_run_records_a_dirty_tree(path, repo, tmp_path):
+def test_confirmatory_run_refuses_a_dirty_tree_before_opening_the_bases(repo, tmp_path):
     (repo / "regra.py").write_text("ALFA = 0.10\n")  # mudança no código, sem commit
-    run_confirmatory(path, "b", tmp_path / "out", n_boot=50)
-    saved = json.loads((tmp_path / "out" / "x7b.json").read_text())["ambiente"]
-    assert saved["commit"] == _git(repo, "rev-parse", "HEAD") and saved["arvore_suja"] is True
+    data = tmp_path / "dados"
+    data.mkdir()
+    open_path = data / "sih.parquet"
+    for p in (open_path, sealed_path(open_path)):
+        p.write_text("não é parquet")  # se a rodada abrisse uma base antes de recusar, o erro seria outro
+    out = tmp_path / "out"
+    with pytest.raises(RuntimeError, match="commite ou descarte"):
+        run_confirmatory(open_path, "b", out)
+    assert not out.exists()
+    out.mkdir()
+    (out / "x7b.json").write_text("{}")  # a recusa vale também para a reexecução declarada
+    with pytest.raises(RuntimeError, match="commite ou descarte"):
+        run_confirmatory(open_path, "b", out, deviation="reexecução com mudanças não commitadas")
+    assert [p.name for p in out.iterdir()] == ["x7b.json"]  # nenhum arquivo novo, nem desvios.md
 
 
-def test_confirmatory_run_records_null_without_git(path, repo, tmp_path, monkeypatch):
-    monkeypatch.setenv("PATH", str(tmp_path / "sem_git"))  # o repositório existe, mas não há git para consultá-lo
+def test_confirmatory_run_goes_on_and_records_null_without_git(path, repo, tmp_path, monkeypatch):
+    (repo / "regra.py").write_text("ALFA = 0.10\n")  # árvore suja, mas sem git a rodada não tem como saber
+    monkeypatch.setenv("PATH", str(tmp_path / "sem_git"))  # nenhum executável git no PATH
     run_confirmatory(path, "b", tmp_path / "out", n_boot=50)
     saved = json.loads((tmp_path / "out" / "x7b.json").read_text())["ambiente"]
     assert saved["commit"] is None and saved["arvore_suja"] is None
+
+
+def test_code_version_counts_an_untracked_file_as_a_change(repo):
+    assert code_version(repo)["arvore_suja"] is False
+    (repo / "notas.txt").write_text("rascunho\n")
+    assert code_version(repo)["arvore_suja"] is True
 
 
 def test_code_version_is_null_unless_the_root_is_a_repository_with_a_commit(repo, tmp_path):

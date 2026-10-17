@@ -88,7 +88,9 @@ mês do ano anterior (razão abaixo de 0,90 recusa) e para se faltar alguma comp
 2019 e julho de 2026. Cada arquivo registra as versões das bibliotecas e o SHA-256 das duas bases. Os arquivos de 26 e
 27/09 não registram o commit do código; os gravados depois deles, como o da X7c, trazem também no bloco `ambiente` o
 commit (`commit`) e se a árvore de trabalho tinha mudanças não commitadas (`arvore_suja`), com `null` nos dois quando
-não há git. A checagem do seguimento já estava no código do pré-registro.
+não há git. Com mudanças não commitadas, inclusive um arquivo novo ainda não rastreado, a rodada para antes de ler as
+bases, mesmo numa reexecução com `--desvio`: commite ou descarte as mudanças antes de rodar. A checagem do seguimento
+já estava no código do pré-registro.
 
 Os arquivos publicados trazem os resultados das execuções de 26 e 27/09/2026 que decidiram as hipóteses.
 

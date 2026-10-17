@@ -4,7 +4,8 @@ Uso:
     python -m triagem_baixo_risco.experimentos.confirmatorio --variante a
 
 Cada variante roda uma vez. Reexecutar exige --desvio "motivo": a rodada grava um arquivo novo e acrescenta o
-motivo a desvios.md na pasta de saída.
+motivo a desvios.md na pasta de saída. Com mudanças não commitadas no repositório, a rodada para antes de ler as
+bases, mesmo com --desvio; sem git, ela segue e grava o commit como null.
 """
 
 from __future__ import annotations
@@ -235,6 +236,11 @@ def run_confirmatory(
         ref_file = max(refs, key=lambda p: p.name)  # o desvio mais recente, se houver
     started = time.localtime()
     environment = _environment()  # antes de ler os dados e de gravar qualquer saída
+    if environment["arvore_suja"]:
+        raise RuntimeError(
+            f"{label}: há mudanças não commitadas em {config.ROOT} (veja git status); commite ou descarte as mudanças"
+            " antes de rodar"
+        )
     sealed = load_sealed(open_path)
     raw = pd.concat([load_open(open_path), sealed], ignore_index=True)  # sem guardar outra cópia do aberto
     integrity = check_integrity(raw, sealed)
