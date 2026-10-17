@@ -104,3 +104,27 @@ que a H5 avaliou.
   A cronologia (commit do pré-registro às 21:40 de 26/09, tag às 22:19, download das 22:54 às 22:56, primeira rodada
   às 23:02) é declaração do autor, não prova. `docs/reproduzir.md` já trazia essa ressalva, e o artigo passa a
   trazê-la na seção 3.5 e nas limitações.
+
+
+## Commit do código no JSON da rodada
+
+
+**16/10/2026.** A rodada confirmatória passou a gravar, no bloco `ambiente` de cada arquivo, o commit do código
+(`commit`, a saída de `git rev-parse HEAD`) e se a árvore de trabalho tinha mudanças não commitadas (`arvore_suja`,
+verdadeiro quando `git status --porcelain` lista algum arquivo, inclusive não rastreado). Os dois campos são
+preenchidos no início da rodada, antes de abrir as bases, e ficam `null` sem git, num repositório sem commit ou quando
+a pasta do código não é a raiz do repositório que o git encontra (uma cópia sem `.git` dentro de outro repositório, por
+exemplo). Com a árvore suja, a rodada termina com erro antes de abrir as bases, mesmo numa reexecução com `--desvio`, e
+só roda depois que as mudanças forem commitadas ou descartadas. Com git, então, todo arquivo gravado traz `arvore_suja`
+falso; sem git, a rodada segue e grava `null` nos dois campos. Era o que este diário e `docs/reproduzir.md` prometiam
+para a X7c. Os arquivos de 26 e 27/09 continuam sem esses campos, e nenhum foi regravado. A mudança entrou antes da
+publicação da competência de outubro/2026, que a X7c exige.
+
+
+**Efeito esperado.** Nenhum sobre as decisões de hipótese. A mudança acrescenta dois campos ao JSON e uma checagem
+feita antes de qualquer leitura das bases. O cálculo da rodada e os critérios de H1 a H5, em `avaliacao.py`, não
+mudam, e a X7c continua refazendo o ajuste da X7a e parando se a regra não sair igual à de `x7a.json`.
+
+
+Código: `triagem_baixo_risco/experimentos/confirmatorio.py`, com testes em `tests/test_confirmatorio.py` que cobrem
+repositório limpo, sujo e sem git (commits `b33f192` e `c7b213e`); `docs/reproduzir.md` diz onde ficam os campos.
