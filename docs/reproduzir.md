@@ -126,7 +126,7 @@ qualquer aviso vira erro.
 ## Limitação de prova
 
 Duas datas deste repositório não são verificáveis de fora: o horário do download de 2026 vem do log do ETL, que mora
-na máquina do autor, e a tag do pré-registro não é assinada nem tem testemunha pública — quem recebe este repositório
+na máquina do autor, e a tag do pré-registro não é assinada nem tem testemunha pública. Quem recebe este repositório
 recebe a cronologia como declaração, não como prova. A X7c nasce diferente: antes de sair a competência de outubro,
 código e plano serão depositados em arquivo com carimbo externo (Zenodo ou OSF), e a rodada gravará o commit da
 execução no JSON de saída. A limitação está registrada no diário.

@@ -16,7 +16,7 @@ S3, a S4 e a S5 não mexem nas colunas e rodaram em seguida.
 
 **27/09/2026.** Corrigi o defeito: a logística completa passou a usar as variáveis da própria sensibilidade, como o
 boosting já fazia. Quando decidi, eu já conhecia os resultados da X7a e da X7b; a S1 tinha rodado, mas eu não tinha
-visto o resultado, e a S3, a S4 e a S5 já tinham rodado — cada uma levou cerca de dois minutos —, sem que eu tivesse lido os resultados delas. A S2 e a S6 rodaram uma única vez cada, com o código
+visto o resultado, e a S3, a S4 e a S5 já tinham rodado (cada uma levou cerca de dois minutos), sem que eu tivesse lido os resultados delas. A S2 e a S6 rodaram uma única vez cada, com o código
 corrigido, ainda em 27/09/2026.
 
 
@@ -48,8 +48,8 @@ Arquivos: `reports/confirmatorio/x7a_s2.json` e `reports/confirmatorio/x7a_s6.js
   0,204 para 0,231, sem mudar nenhuma decisão sobre as hipóteses. O pré-registro cita os valores anteriores com duas
   casas, 0,14 e 0,20; o valor exato de antes do pré-registro (0,135) é do registro de execuções do autor, não versionado.
 
-- a reexecução de validação em pasta limpa (29/09) cobriu as bases e os exploratórios: a base lacrada manteve o SHA-256 dos JSONs; a aberta canônica (`fd5fec25…`, o `sha256_dados.aberto` dos JSONs da rodada) foi rebaixada e saiu como `76f6bcc5…` — mesmas 825.434 linhas, mesmos resultados exploratórios; a diferença é a formatação de campos de valores pagos de fev/2019 e jan/2024, que não entram nas análises. As rodadas confirmatórias não foram reexecutadas: cada arquivo saiu uma vez, entre a noite de 26/09 e a de 27/09. Limitação: os relatórios das explorações não gravam o SHA-256 da base — só os da rodada; os números exploratórios são conferíveis pelas linhas e campos, não pelo hash. Nada muda nas decisões; entra aqui porque o pré-registro pede que reexecuções fiquem no diário.
-- as sensibilidades de parâmetro declaradas no pré-registro — γ = 0,01 e 0,05 na estratégia (e), meia-vida 2 e 8 trimestres na (f) — constam dos relatórios versionados (`x3.csv`, `x4.csv`, figuras de garantias); o que faltava era o relato no texto, e ele entra aqui: em 2024T1, e(γ=0,01) e e(γ=0,05) acompanham a referência (0,020 e 0,026 ajustados por Holm), e a (f) com meia-vida 8 violaria a G1 (6,97% dos óbitos; ajustado 0,040) onde a (f) pré-registrada resiste (0,058) — resistência que as brutas de 0,005 a 0,007 não teriam sem Holm. Nenhuma linha de parâmetro altera decisão confirmatória: H3 se avalia com γ = 0,02 e meia-vida 4.
+- a reexecução de validação em pasta limpa (29/09) cobriu as bases e os exploratórios: a base lacrada manteve o SHA-256 dos JSONs; a aberta canônica (`fd5fec25…`, o `sha256_dados.aberto` dos JSONs da rodada) foi rebaixada e saiu como `76f6bcc5…`, com as mesmas 825.434 linhas e os mesmos resultados exploratórios; a diferença é a formatação de campos de valores pagos de fev/2019 e jan/2024, que não entram nas análises. As rodadas confirmatórias não foram reexecutadas: cada arquivo saiu uma vez, entre a noite de 26/09 e a de 27/09. Limitação: os relatórios das explorações não gravam o SHA-256 da base, só os da rodada; os números exploratórios são conferíveis pelas linhas e campos, não pelo hash. Nada muda nas decisões; entra aqui porque o pré-registro pede que reexecuções fiquem no diário.
+- as sensibilidades de parâmetro declaradas no pré-registro, γ = 0,01 e 0,05 na estratégia (e) e meia-vida de 2 e 8 trimestres na (f), constam dos relatórios versionados (`x3.csv`, `x4.csv`, figuras de garantias); o que faltava era o relato no texto, e ele entra aqui: em 2024T1, e(γ=0,01) e e(γ=0,05) acompanham a referência (0,020 e 0,026 ajustados por Holm), e a (f) com meia-vida 8 violaria a G1 (6,97% dos óbitos; ajustado 0,040) onde a (f) pré-registrada resiste (0,058), resistência que as brutas de 0,005 a 0,007 não teriam sem Holm. Nenhuma linha de parâmetro altera decisão confirmatória: H3 se avalia com γ = 0,02 e meia-vida 4.
 
 
 - os arquivos publicados da rodada não registram o commit do código que os gerou; o que ancora a versão é a tag `pre-registro-v1` (26/09, 22:19) para as execuções pré-registradas, e o commit da correção de 27/09 para S2 e S6.
@@ -61,9 +61,9 @@ Arquivos: `reports/confirmatorio/x7a_s2.json` e `reports/confirmatorio/x7a_s6.js
 
 
 **30/09/2026.** O pré-registro e o código versionados decidem a H5 só por Holm. A regra anterior, que refutava também
-se qualquer faixa tivesse p binomial abaixo de 0,05 — a mesma que o caderno 7.0, escrito hoje, ainda descreve —, foi
+se qualquer faixa tivesse p binomial abaixo de 0,05 (a mesma que o caderno 7.0, escrito hoje, ainda descreve), foi
 trocada durante o desenvolvimento, depois de vistos os resultados exploratórios com as duas regras, sem registro na
-época. Efeito: sob a regra antiga, a H5 teria sido refutada no X5 — na faixa de 60 a 79 anos em 2023, 135 de 2.200
+época. Efeito: sob a regra antiga, a H5 teria sido refutada no X5: na faixa de 60 a 79 anos em 2023, 135 de 2.200
 óbitos liberados (6,1%), p binomial 0,0098; a linha cruzada de `resultados_x5.json` dá p da G1 = 0,078, que Holm não
 refutaria de todo modo; os 88 de 2.200 da regra única não são essa linha. O agregado de 2023 a 2025 (3,1% a 5,0%) não é o recorte
 que a H5 avaliou.
@@ -85,7 +85,7 @@ que a H5 avaliou.
   1,01 e 1,14, foram calculadas fora das rodadas, sem olhar nenhum desfecho.
 - A troca do teste binomial pelo beta-binomial na G1 veio antes do pré-registro, depois de eu ver os resultados
   exploratórios com os dois testes.
-- Datação da troca acima: o commit de modelagem de 08/09 é a "revisão final do código" do pré-registro — a família binomial de G1 existiu só no ambiente de desenvolvimento e nunca foi versionada (o binomial que sobrevive no módulo serve à G2). A comparação dos dois testes foi feita nesse desenvolvimento, no início de setembro, sobre a coorte do ETL inicial; os testes de fumaça de 26/09 (X2 e X6) que o pré-registro relata reconfirmaram o padrão — e é a essa sequência que o caderno 7.0 chama "depois de ver o X2 com os dois". A "revisão final mostrou" do pré-registro é o efeito visto nas simulações rápidas do desenvolvimento; a quantificação (26,1%) saiu depois, no caderno 7.0.
+- Datação da troca acima: o commit de modelagem de 08/09 é a "revisão final do código" do pré-registro; a família binomial de G1 existiu só no ambiente de desenvolvimento e nunca foi versionada (o binomial que sobrevive no módulo serve à G2). A comparação dos dois testes foi feita nesse desenvolvimento, no início de setembro, sobre a coorte do ETL inicial; os testes de fumaça de 26/09 (X2 e X6) que o pré-registro relata reconfirmaram o padrão, e é a essa sequência que o caderno 7.0 chama "depois de ver o X2 com os dois". A "revisão final mostrou" do pré-registro é o efeito visto nas simulações rápidas do desenvolvimento; a quantificação (26,1%) saiu depois, no caderno 7.0.
 - A H1b foi formulada depois de ver a violação da G1 no 1º trimestre de 2024.
 
 ---
